@@ -18,7 +18,7 @@ if uploaded_file is not None:
   column = st.selectbox("Filter column", options=["class", "sex", "embark_town", "alive", "who"])
   filter_enabled = st.checkbox("Enable passenger filter", value=False)
   filtered = df.copy()
-  if filter_enabled
+  if filter_enabled:
     choices = sorted(df[column].dropna().astype(str).unique().tolist())
     selected = st.multiselect("Select values", options=choices, default=choices)
     filtered = filtered[filtered[column].astype(str).isin(selected)]
